@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Alert } from 'react-native';
 
 import Loading from "./View/Loading";
 import * as GetLocation from "./Model/getLocation"; //getData함수 호출
-import * as Controller from "./Model/ServerController";
 
 
 //React 컴포넌트 class를 정의하려면 React.Component를 상속받아야함
@@ -18,25 +17,12 @@ export default class extends React.Component {
 
   getLocation = async() => {
     const locationData = await GetLocation.getLocation();
-    let count = 1;
-    while(this.locationDBInsert(locationData)) { 
-      //5번까지 요청해보고 안되면 그냥 랜더링
-      if(count >= 5) {
-        break;
-      }
-      count++;
-    }
+    const result = await GetLocation.locationDBInsert(locationData); //locationData DBinsert
+    console.log("result", result);
     this.setState({
       isLoading: false,
       location: locationData,
     });
-  }
-
-  async locationDBInsert(locationData) {
-    //DB전송
-    const url = "locationInsert";
-    const result = await Controller.POSTrequest(url, locationData);
-    return result;
   }
 
   componentDidMount() {
@@ -52,10 +38,14 @@ export default class extends React.Component {
       );
     }
     else{
-      console.log(locationData);
       if(locationData == null) {
         //사용자가 location권한을 거부함
         Alert.alert("GPS를 켜야합니다.");
+        return (
+          <View style={styles.container}>
+            <Text style={styles.text}> 새로고침 후 GPS권한을 설정해주세요 </Text>
+          </View>
+        );
       }
       else{
         return (

@@ -1,4 +1,5 @@
 import * as Location from "expo-location";
+import * as Controller from "./ServerController";
 
 export async function getLocation() {
   try {
@@ -8,5 +9,27 @@ export async function getLocation() {
     return location.coords;
   } catch(error) {
     return null;
+  }
+}
+
+export async function locationDBInsert(locationData) {
+  //DB전송
+  const url = "locationInsert";
+  try {
+    let count = 0;
+    do {
+      //5번까지 요청해보고 안되면 그냥 false반환
+      let res = await Controller.POSTrequest(url, locationData);
+      if(res) {
+        //DBinsert성공 
+        return true;
+      } 
+      else{
+        count++;
+      }
+    } while(count < 5);
+    return false;
+  } catch(error) {
+    return false;
   }
 }

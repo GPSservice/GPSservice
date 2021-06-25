@@ -7,14 +7,18 @@ export async function GETrequest(url) {
 export async function POSTrequest(url, data) {
     let returnResult = false;
     if(url == "locationInsert") {
-        Axios.post("http://localhost/post/location.php",  {
-            latitude: data.latitude,
-            longitude: data.longitude,
+        await Axios.post("http://10.0.2.2/post/location.php",  {
+            headers: "'Content-Type': 'application/json'",
+            data: {
+                latitude: data.latitude,
+                longitude: data.longitude,
+            },
         })
         .then(function(response) {
-            returnResult = response;
+            returnResult = response.data;
         })
         .catch(function(error) {
+            console.log("error: ", error);
             returnResult = false;
         });
     }
