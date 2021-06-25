@@ -1,16 +1,14 @@
-● 주 고객 (standard, VIP)
-- 유동인구 현황 보기
-	=> 세부 정보: 성별, 나이대, 직업, 방문목적, 직전 방문장소(어디에서 왔느냐)
-	=> 검색 옵션: 날짜별, 시간대별, 최근 n일/주/월/년
-- 그 지역의 사람들은 어떤 콘텐츠를 많이 이용했는지에 대한 정보
-	=> 콘텐츠 라벨링작업 && 그 지역의 유동인구는 무슨 콘텐츠를 이용했는가에 대한 데이터 분석 필요
+[2021/06/25 업데이트]
+- server repository 생성 (name: GPSserviceServer)
+- locationData DB 저장 완료
 
-** 데이터 처리 방법 **
-- 성별, 나이대, 직업: 회원정보에서 얻어오기
-- 방문목적, 직전 방문장소: 사람들에게 직접 물어보기 || 위치정보를 통해 방문한 장소 라벨링 작업
-
-
-● 정보제공자 고객
-- 어떠한 화면에 들어갔을때 사용자가 지금의 위치가 어디인지 작성할 수 있게끔하는 콘텐츠
-	=> A라는 화면에 들어갈때 마다 GPS정보 저장
-	=> A라는 화면에 들어갈때 사용자가 명확한 카테고리로 분류할 수 있는 장소에 있어야함.
+★ 적용방법 ★
+1. GPSserviceServer에 있는 파일들 다운받아서 xampp/htdocs 폴더에 넣기
+2. XAMPP서버 실행
+3. GPSserviceServer에 있는 파일 중 gpsservice.sql을 mysql에 적용
+	1) mysql에 create database gpsservice; 명령어 실행
+	2) DBconnect.php파일에 가서 new mysqli()안에 있는 파라미터 중 비번 변경 
+		(현재 비번 sjml0724@@)
+	3) use gpsservice 후 source c:\[sql파일이 있는 경로].gpsservice.sql
+	4) xampp서버의 apache와 mysql을 키고 앱 실행
+		=> select로 location정보가 제대로 들어가는지 확인
