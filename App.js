@@ -52,12 +52,19 @@ export default class extends React.Component {
       );
     }
     else{
-      return (
-        <View style={styles.container}>
-          <Text style={styles.text}> 왜 안뜨지? </Text>
-          <Text style={styles.text}> {locationData.latitude} / {locationData.longitude} </Text>
-        </View>
-      );
+      console.log(locationData);
+      if(locationData == null) {
+        //사용자가 location권한을 거부함
+        Alert.alert("GPS를 켜야합니다.");
+      }
+      else{
+        return (
+          <View style={styles.container}>
+            <Text style={styles.text}> 왜 안뜨지? </Text>
+            <Text style={styles.text}> {locationData.latitude} / {locationData.longitude} </Text>
+          </View>
+        );
+      }
     }
   }
   /*componentWillUnmount() {

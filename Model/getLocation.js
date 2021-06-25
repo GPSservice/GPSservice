@@ -1,4 +1,3 @@
-import React from 'react';
 import * as Location from "expo-location";
 
 export async function getLocation() {
@@ -8,6 +7,6 @@ export async function getLocation() {
     const location = await Location.getCurrentPositionAsync(); //현재 위치 얻기
     return location.coords;
   } catch(error) {
-    Alert.alert("GPS를 켜야합니다.");
+    return null;
   }
 }
