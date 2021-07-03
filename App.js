@@ -1,22 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
 import 'react-native-gesture-handler';
+import { StyleSheet, Text, View, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import MainScreen from "./View/MainScreen";
 import Loading from "./View/Loading";
+import NewReminderScreen from "./View/login";
 import * as GetLocation from "./Model/getLocation"; //getData함수 호출
 import MapViewHome from './View/MapView.js';
 
 
-export default function ScreenNavigation(url) {
+export default function ScreenNavigation() {
   const Stack = createStackNavigator();
+  state = {
+
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        initialRouteName="HomeScreen"
+        initialRouteName="Main"
         headerMode="screen"
       >
+        <Stack.Screen name="Main" component={MainScreen.bind(this)} />
+        <Stack.Screen name="Login" component={NewReminderScreen.bind(this)} options={{title: 'Login'}}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen}></Stack.Screen>
         <Stack.Screen name="MapView" component={MapViewHome}></Stack.Screen>
       </Stack.Navigator>
