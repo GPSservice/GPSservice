@@ -1,6 +1,6 @@
 import * as Location from "expo-location";
 import * as Controller from "./ServerController";
-
+//메인화면에서 위치 얻기
 export async function getLocation() {
   try {
     await Location.requestForegroundPermissionsAsync(); //사용자 권한 얻기

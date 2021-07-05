@@ -14,7 +14,7 @@ import * as GetLocation from "./Model/getLocation"; //getData함수 호출
 export default function ScreenNavigation() {
   const Stack = createStackNavigator();
   state = {
-
+    //state 값
   };
   return (
     <NavigationContainer>

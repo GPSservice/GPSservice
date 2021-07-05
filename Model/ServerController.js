@@ -66,15 +66,15 @@ export async function POSTrequest(url, data) {
 
 
 export async function PUTrequest(url, data) {
-    
+    //전체 업데이트
 }
 
 
 export async function PATCHrequest(url, data) {
-    
+    //부분 업데이트
 }
 
 
 export async function DELETErequest(url) {
-    
+    //삭제
 }
