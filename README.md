@@ -1,19 +1,26 @@
-[2021/07/05] (junsang)
+[2021/07/05 Update] (junsang)
+
 - AWS서버 등록 및 연결 완료
 - 로그인 확인 작업 완료
 	※login.js->LoginScreen.js로 바뀜
 <br>
+
 [2021/07/03 Update] (yeonsumia)
+
 - Login Form Established
 - HomeScreen, Login Navigation
 - Needs: User Database, Server AWS
 - Errors: XAMPP Server Connection Issue In My MAC (→AWS Server)
 <br>
-[2021/06/29 업데이트] (junsang)
+
+[2021/06/29 Update] (junsang)
+
 - MapView.js 생성 => 현재 지도의 위도와 경도로 이 지역 재검색까지 구현 완료
 - 처음 로딩시 서버와 연결되지 않으면 앱 실행 불가 및 알림 구현
 <br>
-[2021/06/25 업데이트] (junsang)
+
+[2021/06/25 Update] (junsang)
+
 - server repository 생성 (name: GPSserviceServer.git)
 - locationData DB 저장 완료
 ★ 적용방법 ★
