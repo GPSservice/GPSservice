@@ -6,9 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MainScreen from "./View/MainScreen";
 import Loading from "./View/Loading";
-import NewReminderScreen from "./View/login";
-import * as GetLocation from "./Model/getLocation"; //getData함수 호출
+import NewReminderScreen from "./View/LoginScreen";
 import MapViewHome from './View/MapView.js';
+import * as GetLocation from "./Model/getLocation"; //getData함수 호출
 
 
 export default function ScreenNavigation() {
@@ -43,6 +43,8 @@ class HomeScreen extends React.Component {
     }
   };
 
+//////////// Module ////////////
+
   getLocation = async() => {
     const locationData = await GetLocation.getLocation();
     await GetLocation.locationDBInsert(locationData); //locationData DBinsert
@@ -51,6 +53,8 @@ class HomeScreen extends React.Component {
       location: locationData,
     });
   }
+
+//////////// Module 끝 ////////////
 
   NavigatorSetting(screenName, sendData) {
     if(sendData !== null) {

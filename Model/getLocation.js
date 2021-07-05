@@ -19,7 +19,7 @@ export async function locationDBInsert(locationData) {
     let count = 0;
     do {
       //5번까지 요청해보고 안되면 그냥 false반환
-      let res = await Controller.POSTrequest(url, locationData);
+      let res = await Controller.UrlandDataSetting(url, locationData);
       if(res) {
         //DBinsert성공 
         return true;
