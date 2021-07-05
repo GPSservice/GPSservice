@@ -17,6 +17,7 @@ async function chekcLogin(userID, userPW, {navigation}) {
     }
 }
 
+//loginScreen (export default function)
 function NewReminderScreen ({navigation}) {
       const [username, setUsername] = useState("");
       const [password, setPassword] = useState("");
