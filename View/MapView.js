@@ -82,7 +82,6 @@ export default class MapViewHome extends React.Component {
                                             data={tmpArr} 
                                             regionDelta={deltaData}
                                         > </PopulationMarker>;
-                    //const tmpPushData = new PopulationMarker(tmpArr);
                     markerArr.push(tmpPushData);
                 }
                 this.setState({
