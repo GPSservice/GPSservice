@@ -3,8 +3,17 @@ import Axios from "axios";
 //여기서 url과 data세팅 후 각 request를 보냄
 export async function UrlandDataSetting(url, data) {
     let returnValue = false;
+    
+    //////////// github에 올릴떄 이부분 수정 ////////////
+    /*AWS연결할때 이 부분만 변경하면 됨
+        
+    const AWSurl = "http://gpsserviceserver-env.eba-yusud4em.ap-northeast-2.elasticbeanstalk.com/";
+    */
+   const AWSurl = "http://10.0.2.2:80/"; //localhost 연결
+   ///////////////////////////////////////////////////
+
     if(url == "locationInsert") {
-        const sendUrl = "http://gpsserviceserver-env.eba-yusud4em.ap-northeast-2.elasticbeanstalk.com/post/location.php";
+        const sendUrl = AWSurl + "post/location.php";
         const sendData = {
             latitude: data.latitude,
             longitude: data.longitude,
@@ -12,8 +21,16 @@ export async function UrlandDataSetting(url, data) {
         returnValue = await POSTrequest(sendUrl, sendData);
     }
     else if(url == "loginVerify") {
-        const sendUrl = "http://gpsserviceserver-env.eba-yusud4em.ap-northeast-2.elasticbeanstalk.com/get/loginVerify.php";
+        const sendUrl = AWSurl + "get/loginVerify.php";
         const sendData = data; //{userID, userPW}
+        returnValue = await GETrequest(sendUrl, sendData);
+    }
+    else if(url == "populationData") {
+        const sendUrl = AWSurl + "get/populationData.php";
+        const sendData = {
+            latitude: data.latitude,
+            longitude: data.longitude,
+        };
         returnValue = await GETrequest(sendUrl, sendData);
     }
     return returnValue;
