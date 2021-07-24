@@ -5,11 +5,11 @@ export async function UrlandDataSetting(url, data) {
     let returnValue = false;
     
     //////////// github에 올릴떄 이부분 수정 ////////////
-    /*AWS연결할때 이 부분만 변경하면 됨
+    //AWS연결할때 이 부분만 변경하면 됨
         
-    const AWSurl = "http://gpsserviceserver-env.eba-yusud4em.ap-northeast-2.elasticbeanstalk.com/";
-    */
-   const AWSurl = "http://10.0.2.2:80/"; //localhost 연결
+    const AWSurl = "http://gpsservice-env.eba-yrtfesnt.ap-northeast-2.elasticbeanstalk.com/";
+    
+   //const AWSurl = "http://10.0.2.2:80/"; //localhost 연결
    ///////////////////////////////////////////////////
 
     if(url == "locationInsert") {
