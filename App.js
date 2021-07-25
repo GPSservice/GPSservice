@@ -101,7 +101,12 @@ class HomeScreen extends React.Component {
         Alert.alert("GPS를 켜야합니다.");
         return (
           <View style={styles.container}>
-            <Text style={styles.text}> 새로고침 후 GPS권한을 설정해주세요 </Text>
+            <Text style={styles.text}> GPS을 켜신 후에 새로고침을 해주세요. </Text>
+            <View style={styles.btnContainer}>
+              <TouchableOpacity onPress={this.getLocation()} style={styles.refreshBtn}>
+                <Text style={[styles.text, {fontSize: 15}]}>새로고침 하기</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         );
       }
@@ -109,7 +114,7 @@ class HomeScreen extends React.Component {
         return (
           <View style={styles.container}>
             <Text style={styles.text}> {locationData.latitude} / {locationData.longitude} </Text>
-            <View style={styles.mapContainer}>
+            <View style={styles.btnContainer}>
               <TouchableOpacity
                 onPress={() => this.NavigatorSetting("MapView", locationData)}
                 style={styles.mapButton}
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: "center",
   },
-  mapContainer: {
+  btnContainer: {
     alignSelf: "center",
     marginTop: 10,
   },
@@ -150,5 +155,11 @@ const styles = StyleSheet.create({
     width: 100,
     height: 30,
     backgroundColor: "blue",
+  },
+  refreshBtn: {
+    justifyContent: "center",
+    width: 100,
+    height: 30,
+    backgroundColor: "#ff8c00",
   }
 });
