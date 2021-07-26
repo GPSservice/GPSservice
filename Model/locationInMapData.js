@@ -38,6 +38,7 @@ class PopulationData{
         this.setterAge(props.age);
         this.setterGender(props.gender);
         this.setterJob(props.job);
+        this.setterPopulation(props.population);
         this.setterRegionData(props.regionData);
     }
 
@@ -53,6 +54,9 @@ class PopulationData{
     }
     setterJob(job) {
         this.job = job; //descending sorting array
+    }
+    setterPopulation(population) {
+        this.population = population;
     }
     setterRegionData(regionData) {
         this.regionData = regionData; //JSON (latitude, longitude)
@@ -70,6 +74,9 @@ class PopulationData{
     }
     getterJob() {
         return this.job;
+    }
+    getterPopulation() {
+        return this.population;
     }
     getterRegionData() {
         return this.regionData;
