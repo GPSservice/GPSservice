@@ -6,17 +6,14 @@ export async function UrlandDataSetting(url, data) {
     
     //////////// github에 올릴떄 이부분 수정 ////////////
       //AWS연결
-    const AWSurl = "http://gpsservice-env.eba-yrtfesnt.ap-northeast-2.elasticbeanstalk.com/";
+    //const AWSurl = "http://gpsservice-env.eba-yrtfesnt.ap-northeast-2.elasticbeanstalk.com/";
       //localhost 연결
-    //const AWSurl = "http://10.0.2.2:80/";
+    const AWSurl = "http://10.0.2.2:80/";
     ///////////////////////////////////////////////////
 
     if(url == "locationInsert") {
         const sendUrl = AWSurl + "post/location.php";
-        const sendData = {
-            latitude: data.latitude,
-            longitude: data.longitude,
-        };
+        const sendData = data; //id, location: {latitude, longitude},
         returnValue = await POSTrequest(sendUrl, sendData);
     }
     else if(url == "loginVerify") {
@@ -26,10 +23,7 @@ export async function UrlandDataSetting(url, data) {
     }
     else if(url == "populationData") {
         const sendUrl = AWSurl + "get/populationData.php";
-        const sendData = {
-            latitude: data.latitude,
-            longitude: data.longitude,
-        };
+        const sendData = data; //latitude, longitude
         returnValue = await GETrequest(sendUrl, sendData);
     }
     return returnValue;
