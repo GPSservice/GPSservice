@@ -12,14 +12,24 @@ export async function getLocation() {
   }
 }
 
-export async function locationDBInsert(locationData) {
-  //DB전송
-  const url = "locationInsert";
+export async function locationDBInsert(userLocationData) {
+  console.log(userLocationData);
   try {
+    const url = "locationInsert";
+    const data = {
+      userID: userLocationData.userID,
+      location: {
+        latitude: userLocationData.location.latitude,
+        longitude: userLocationData.location.longitude,
+      },
+    };
+    console.log("제발좀 되라 \n", data);
+    
+    //DB전송
     let count = 0;
     do {
       //5번까지 요청해보고 안되면 그냥 false반환
-      let res = await Controller.UrlandDataSetting(url, locationData);
+      let res = await Controller.UrlandDataSetting(url, data);
       if(res) {
         //DBinsert성공 
         return true;
