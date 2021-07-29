@@ -9,7 +9,7 @@ async function chekcLogin(userID, userPW, {navigation}) {
     const getLoginMessage = await LoginVerify.loginDBselect(userID, userPW);
     if(getLoginMessage.result) {
       //로그인 성공
-      navigation.navigate("HomeScreen");
+      navigation.navigate("HomeScreen", { userID: userID });
     }
     else{
       //로그인 실패
