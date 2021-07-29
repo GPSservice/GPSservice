@@ -35,6 +35,7 @@ export default function ScreenNavigation() {
 //React 컴포넌트 class를 정의하려면 React.Component를 상속받아야함
 class HomeScreen extends React.Component {
   state = {
+    userID: this.props.route.params.userID,
     isLoading: true,
     LotsofTimedPassed: false, //true면은 너무 많은시간이 로딩된것임
     location: {
@@ -47,7 +48,11 @@ class HomeScreen extends React.Component {
 
   getLocation = async() => {
     const locationData = await GetLocation.getLocation();
-    await GetLocation.locationDBInsert(locationData); //locationData DBinsert
+    const sendData = {
+      userID: this.state.userID,
+      location: locationData,
+    }
+    await GetLocation.locationDBInsert(sendData); //locationData DBinsert
     this.setState({
       isLoading: false,
       location: locationData,
@@ -113,6 +118,7 @@ class HomeScreen extends React.Component {
       else{
         return (
           <View style={styles.container}>
+            <Text style={styles.text}> id: {this.state.userID} </Text>
             <Text style={styles.text}> {locationData.latitude} / {locationData.longitude} </Text>
             <View style={styles.btnContainer}>
               <TouchableOpacity
