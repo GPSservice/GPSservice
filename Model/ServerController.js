@@ -6,9 +6,9 @@ export async function UrlandDataSetting(url, data) {
     
     //////////// github에 올릴떄 이부분 수정 ////////////
       //AWS연결
-    //const AWSurl = "http://gpsservice-env.eba-yrtfesnt.ap-northeast-2.elasticbeanstalk.com/";
+    const AWSurl = "http://gpsservice-env.eba-yrtfesnt.ap-northeast-2.elasticbeanstalk.com/";
       //localhost 연결
-    const AWSurl = "http://10.0.2.2:80/";
+    //const AWSurl = "http://10.0.2.2:80/";
     ///////////////////////////////////////////////////
 
     if(url == "locationInsert") {
