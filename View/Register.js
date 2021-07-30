@@ -81,10 +81,13 @@ function RegisterScreen ({navigation}) {
                     style={styles.textbox}
                   />
                     <View style={styles.btnContainer}>
-                      {/* DB에 넘기기 */}
+                      {/* DB에 넘기기 (if password === cf_password)*/}
                       {/* DB에 잘 넘어갔는지 check */}
                     <View style ={styles.goto}>
-                      <TouchableOpacity onPress={() => Alert.alert("회원가입이 완료되었습니다.")} style={styles.buttons}>
+                      <TouchableOpacity onPress={() => {
+                        Alert.alert("회원가입이 완료되었습니다."); 
+                        navigation.navigate("Login");}} 
+                        style={styles.buttons}>
                         <Text style={{fontSize: 20, color: "#000000"}}>confirm</Text>
                       </TouchableOpacity>
                     </View>
