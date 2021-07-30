@@ -4,9 +4,10 @@ import { StyleSheet, Text, View, Alert, TouchableOpacity, Image, TextInput } fro
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import MainScreen from "./View/MainScreen";
+import MainScreen from "./View/Main";
 import Loading from "./View/Loading";
-import NewReminderScreen from "./View/LoginScreen";
+import LoginScreen from "./View/Login";
+import RegisterScreen from "./View/Register";
 import MapViewHome from './View/MapView.js';
 import * as GetLocation from "./Model/getLocation"; //getData함수 호출
 
@@ -21,11 +22,13 @@ export default function ScreenNavigation() {
       <Stack.Navigator 
         initialRouteName="Main"
         headerMode="screen"
+        screenOptions = {{ headerShown: false }}
       >
         <Stack.Screen name="Main" component={MainScreen.bind(this)} />
-        <Stack.Screen name="Login" component={NewReminderScreen.bind(this)} options={{title: 'Login'}}/>
-        <Stack.Screen name="HomeScreen" component={HomeScreen}></Stack.Screen>
-        <Stack.Screen name="MapView" component={MapViewHome}></Stack.Screen>
+        <Stack.Screen name="Login" component={LoginScreen.bind(this)} options={{title: 'Login'}}/>
+        <Stack.Screen name="Register" component={RegisterScreen.bind(this)} options={{ headerShown: true }}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+        <Stack.Screen name="MapView" component={MapViewHome} options={{ headerShown: true }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

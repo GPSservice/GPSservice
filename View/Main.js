@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         //paddingHorizontal: 30,
         //paddingVertical: 100,
         alignItems: "center",
-        backgroundColor: "#1167b1",
+        backgroundColor: "#9E81BE",
     },
     loadingText: {
         color: "#2c2c2c",
@@ -37,9 +37,10 @@ const styles = StyleSheet.create({
     title: {
         fontSize : 25,
         fontWeight : 'bold',
+        color : '#FFFFFF'
     },
     subtitle: {
         fontSize: 10,
-        color: '#03254c'
+        color: '#E6E6FA'
     }
 })

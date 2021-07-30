@@ -5,7 +5,7 @@ import {StyleSheet, Text, View, Image, TextInput, Button, Alert} from "react-nat
 import * as LoginVerify from '../Model/loginVerify';
 
 //check LoginVerify
-async function chekcLogin(userID, userPW, {navigation}) {
+async function checkLogin(userID, userPW, {navigation}) {
     const getLoginMessage = await LoginVerify.loginDBselect(userID, userPW);
     if(getLoginMessage.result) {
       //로그인 성공
@@ -17,8 +17,7 @@ async function chekcLogin(userID, userPW, {navigation}) {
     }
 }
 
-//loginScreen (export default function)
-function NewReminderScreen ({navigation}) {
+function LoginScreen ({navigation}) {
       const [username, setUsername] = useState("");
       const [password, setPassword] = useState("");
       // const usernameUpdate = (value) => {
@@ -31,11 +30,10 @@ function NewReminderScreen ({navigation}) {
       //                Alert.alert('Credentials', "username :" + username + "password :" + password);
                      
       // };
-
     
         return (
                 <View style={styles.container}>
-                <Text style = {{fontWeight : 'bold', fontSize: 15}}>Login</Text>
+                <Text style = {{fontWeight : 'bold', fontSize: 20, color: '#E6E6FA'}}>Login</Text>
                 <Image source = {require("../assets/login_icon.png")}/>
                   <TextInput
                     value={this.state.username}
@@ -50,22 +48,22 @@ function NewReminderScreen ({navigation}) {
                     secureTextEntry={true}
                     style={styles.textbox}
                   />
+                 <Button
+                    title={'아직 회원이 아니신가요?'}
+                    style={styles.textbox}
+                    onPress={() => navigation.navigate('Register')}
+                  />
                   <Button
                     title={'Login'}
                     style={styles.textbox}
-                    onPress={() => chekcLogin(username, password, {navigation})}
+                    onPress={() => checkLogin(username, password, {navigation})}
                   />
                   </View>
             );
 
     }
 
-export default NewReminderScreen;
-
-
-
-
-
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -74,7 +72,7 @@ const styles = StyleSheet.create({
         //paddingHorizontal: 30,
         //paddingVertical: 100,
         alignItems: "center",
-        backgroundColor: "#1167b1",
+        backgroundColor: "#9E81BE",
     },
     loadingText: {
         color: "#2c2c2c",
