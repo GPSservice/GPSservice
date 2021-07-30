@@ -1,3 +1,7 @@
+[2021/07/30 Update] (junsang)
+
+- 사용자 위치 데이터 DB에 insert시 id조회해서 사용자의 세부정보도 같이 들어가게끔 수정
+
 [2021/07/26 Update] (junsang)
 
 - 지도위에 원 누르면 modal창 뜨면서 각 marker의 세부정보를 표시하는 창 만듦
