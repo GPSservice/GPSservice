@@ -159,11 +159,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
   },
-  mapButton: {
+  buttons: {
     justifyContent: "center",
     width: 100,
     height: 30,
-    backgroundColor: "blue",
+    backgroundColor: "#E6E6FA",
   },
   refreshBtn: {
     justifyContent: "center",
