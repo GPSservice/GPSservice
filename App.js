@@ -147,38 +147,38 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 0,
-    backgroundColor: "#9E81BE",
     justifyContent: "center",
     alignSelf: "center",
-    
+    backgroundColor: "#9E81BE",
+    width: "100%",
   },
   text: {
     fontSize: 24,
     color: 'black',
     textAlign: "center",
   },
-  // btnContainer: {
-  //   alignSelf: "center",
-  //   marginTop: 10,
-  // },
-  buttons: {
+  btnContainer: {
+    alignSelf: "center",
+    marginTop: 10,
+  },
+  mapButton: {
     justifyContent: "center",
     width: 100,
-    height: 30,
-    backgroundColor: "#E6E6FA",
+    height: 40,
+    backgroundColor: "#1e90ff",
   },
   refreshBtn: {
     justifyContent: "center",
     width: 100,
-    height: 30,
+    height: 40,
     backgroundColor: "#ff8c00",
   },
   goto: {
     marginTop: 10,
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#E6E6FA',
-    backgroundColor: '#E6E6FA',
+    justifyContent: "center",
+    alignSelf: "center",
+    alignItems: "center",
   },
 });
