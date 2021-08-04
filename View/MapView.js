@@ -120,7 +120,6 @@ export class PopulationMarker extends React.Component {
             },
             modal: null,
         };
-        console.log(this.state);
     }
 
     markerStyle = (GETdelta) => {
