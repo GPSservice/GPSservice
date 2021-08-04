@@ -10,6 +10,7 @@ function RegisterScreen ({navigation}) {
     const [cf_password, setcfPassword] = useState("");
     const [sex, setSex] = useState("");
     const [job, setJob] = useState("");
+    const [age, setAge] = useState("");
     const button_list = [
       { label: "Male", value: "male" },
       { label: "Female", value: "female" },
@@ -25,7 +26,7 @@ function RegisterScreen ({navigation}) {
                 <TextInput
                     value={this.state.username}
                     onChangeText={(value) => setUsername(value)}
-                    placeholder={'Username'}
+                    placeholder={'ID'}
                     style={styles.textbox}
                     />
                 <Text style = {{fontWeight : 'bold', fontSize: 15, color: '#E6E6FA', marginBottom: 5 }}>Sex</Text>
@@ -77,7 +78,13 @@ function RegisterScreen ({navigation}) {
                     value={this.state.job}
                     onChangeText={(value) => setJob(value)}
                     placeholder={'Job'}
-                    secureTextEntry={true}
+                    style={styles.textbox}
+                  />
+                <Text style = {{fontWeight : 'bold', fontSize: 15, color: '#E6E6FA', marginBottom: 5 }}>Age</Text>
+                  <TextInput
+                    value={this.state.age}
+                    onChangeText={(value) => setAge(value)}
+                    placeholder={'Age'}
                     style={styles.textbox}
                   />
                     <View style={styles.btnContainer}>
