@@ -26,6 +26,11 @@ export async function UrlandDataSetting(url, data) {
         const sendData = data; //latitude, longitude
         returnValue = await GETrequest(sendUrl, sendData);
     }
+    else if(url == "signup") {
+        const sendUrl = AWSurl + "post/user.php";
+        const sendData = data;
+        returnValue = await POSTrequest(sendUrl, sendData);
+    }
     return returnValue;
 }
 
