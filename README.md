@@ -1,3 +1,9 @@
+[2021/09/03 Update] (junsang)
+
+- AppServer와 PyServer(유동인구 데이터 가공 서버) 연결 완료 && jsonData 받아서 MapView에 랜더링
+- MapView에서 원 누를때 뜨는 modal창에 세부 정보 표시 구현 필요
+
+<br>
 [2021/08/05 Update] (junsang)
 
 - Register.js => age, job Picker로 구현
