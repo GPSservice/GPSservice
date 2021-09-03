@@ -13,7 +13,6 @@ export async function getLocation() {
 }
 
 export async function locationDBInsert(userLocationData) {
-  console.log(userLocationData);
   try {
     const url = "locationInsert";
     const data = {
@@ -23,7 +22,6 @@ export async function locationDBInsert(userLocationData) {
         longitude: userLocationData.location.longitude,
       },
     };
-    console.log("제발좀 되라 \n", data);
     
     //DB전송
     let count = 0;
