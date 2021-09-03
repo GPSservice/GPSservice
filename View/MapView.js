@@ -183,8 +183,8 @@ export class PopulationMarker extends React.Component {
             /* view modal if modalVisible==true */
             <Marker
                 coordinate={{
-                    latitude: this.state.markerInfo.region.latitude,
-                    longitude: this.state.markerInfo.region.longitude,
+                    latitude: this.state.markerInfo.region.lat,
+                    longitude: this.state.markerInfo.region.lon,
                 }}
                 title={this.state.population}
                 onPress = { e => this.markerTouchEvent(e)}

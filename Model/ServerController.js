@@ -22,7 +22,7 @@ export async function UrlandDataSetting(url, data) {
         returnValue = await GETrequest(sendUrl, sendData);
     }
     else if(url == "populationData") {
-        const sendUrl = AWSurl + "get/populationData.php";
+        const sendUrl = "http://daserver-env.eba-gugk9mmt.ap-northeast-2.elasticbeanstalk.com/jsonread?";
         const sendData = data; //latitude, longitude
         returnValue = await GETrequest(sendUrl, sendData);
     }

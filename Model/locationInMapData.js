@@ -4,21 +4,9 @@ import * as Controller from "./ServerController";
 export async function requestPopulationData(region) {
     const populationDataArr = [];
     const requestResult = await Controller.UrlandDataSetting("populationData", region);
-    if(requestResult.result !== false) {
-        //return되는 requestResult의 구조는
-        /*
-        [
-            {
-                data
-            },
-            {
-                data
-            },
-            ...
-        ]
-            이런식으로 되어야 함 (json파일이 array형식으로)
-        */
-        for(let tmpArr of requestResult) {
+    if(requestResult.statusCode === 200) {
+        for(let tmpArr of requestResult.body) {
+            console.log(tmpArr)
             const tmpData = new PopulationData(tmpArr);
             populationDataArr.push(tmpData);
         }
@@ -35,11 +23,11 @@ export async function requestPopulationData(region) {
 class PopulationData{
     constructor(props) {
         this.setterID(props.id);
-        this.setterAge(props.age);
-        this.setterGender(props.gender);
-        this.setterJob(props.job);
+        this.setterAge(props.resultData.age);
+        this.setterGender(props.resultData.gender);
+        this.setterJob(props.resultData.job);
         this.setterPopulation(props.population);
-        this.setterRegionData(props.regionData);
+        this.setterRegionData(props.centroids);
     }
 
     /// setData ///
