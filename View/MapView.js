@@ -113,9 +113,9 @@ export class PopulationMarker extends React.Component {
                 deltaData: props.regionDelta,
             },
             userInfo: {
-                age: props.data.age,
-                gender: props.data.gender,
-                job: props.data.job,
+                age: props.data.age.count,
+                gender: props.data.gender.count,
+                job: props.data.job.count,
                 population: props.data.population,
             },
             modal: null,
@@ -156,6 +156,16 @@ export class PopulationMarker extends React.Component {
     markerTouchEvent = (event) => {
         console.log(this.state.id, "번 marker 터치됨");
         this.setState({ modalVisible: true });
+        
+        let ageArr = [];
+        for(let [key, value] of Object.entries(this.state.userInfo.age)) {
+            ageArr.push(
+                <View key={key}>
+                    <Text> {key}대 : {value}</Text>
+                </View>
+            )
+        }
+
         this.state.modal =  <Modal
                                 animationType="fade"
                                 transparent={true}
@@ -173,6 +183,10 @@ export class PopulationMarker extends React.Component {
                                         {/* view populationInfo */}
                                         <Text style={modalStyles.modalText}> id: {this.state.id} </Text>
                                         <Text style={modalStyles.modalText}> 유동인구수: {this.state.userInfo.population} </Text>
+                                        <View><Text> age </Text>{ageArr}</View>
+                                        {/* <Text style={modalStyles.modalText}> age: {this.state.userInfo.age} </Text>
+                                        <Text style={modalStyles.modalText}> gende: {this.state.userInfo.gender} </Text>
+                                        <Text style={modalStyles.modalText}> job: {this.state.userInfo.job} </Text> */}
                                     </View>
                                 </View>
                             </Modal>
@@ -255,7 +269,7 @@ const markerStyles = StyleSheet.create({
     marker: {
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(221, 160, 221, 0.6)",
+        backgroundColor: "rgba(221, 160, 221, 0.8)",
     }
 });
 
