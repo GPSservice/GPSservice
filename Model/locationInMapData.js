@@ -6,7 +6,6 @@ export async function requestPopulationData(region) {
     const requestResult = await Controller.UrlandDataSetting("populationData", region);
     if(requestResult.statusCode === 200) {
         for(let tmpArr of requestResult.body) {
-            console.log(tmpArr)
             const tmpData = new PopulationData(tmpArr);
             populationDataArr.push(tmpData);
         }
